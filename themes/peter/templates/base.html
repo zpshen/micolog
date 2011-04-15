@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>{% block title %} {{ blog.title}}{% endblock %}</title>
+<link rel="stylesheet" href="/themes/{{ blog.theme_name }}/style.css" type="text/css" />
+<link rel="alternate" type="application/atom+xml" title="{{ blog.title }}" href="{{ blog.feedurl }}" />
+<link href="/static/wlwmanifest.xml" type="application/wlwmanifest+xml" rel="wlwmanifest"/>
+<link rel="icon" type="image/ico" href="/favicon.ico">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<link rel="pingback" href="/pingback" />
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+{% block head_block %}{% endblock %}
+</head>
+<body>
+<div id="gc-container">
+<div id="langpref">
+ <span style="background:#CC4444 none repeat scroll 0% 0%;color:white;padding:5px;">
+ 正在加载...
+ </span>
+</div>
+<script>
+
+    function loginp()
+    {
+       $.getJSON("/do/info_login", function(ret){
+              if( ret.islogin)
+              {
+                html='<span style="color:gray;padding:0px 6px">你好，'+ret.name+'</span> <a href="{{self.logouturl}}"> 注销</a>';
+                if (ret.isadmin)
+                html+=' <a href="/admin">管理</a>';
+                $('#langpref').html(html);
+              }
+              else
+              {$('#langpref').html('<a href="/admin"> 登录</a>');}
+       });
+    }
+    loginp();
+</script>
+<div id="gc-header">
+  <div id="logo"><a href="{{ blog.baseurl }}">
+<!--
+     <img src="/themes/{{ blog.theme_name }}/images/cleardot.gif" alt="zpshen.appspot.com" id="gc-logo-img">
+-->
+  </a></div>
+  <div id="search">
+<!-- Google CSE Search Box End -->
+
+    <div id="searchForm" class="searchForm">
+      <form action="{{ blog.baseurl }}/gsearch" id="cse-search-box" >
+        <table class="gsc-search-box" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="gsc-input">
+              	 <input type="hidden" name="cx" value="011174782183950134202:hplznclaark" />
+                 <input type="hidden" name="cof" value="FORID:10" />
+                 
+              </td>
+              <td class="gsc-search-button">
+
+		             
+
+
+              </td>
+            </tr>
+            <tr>
+              <td class="greytext"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div> <!-- end searchForm -->
+
+  </div> <!-- end search -->
+</div> <!-- end gc-header -->
+
+ <div id="codesiteContent">
+
+<div id="gc-topnav">
+  <h1></h1>
+
+  <ul id="home" class="gc-topnav-tabs">
+  	<li id="home_link" class="{%if ishome%}current_page_item{%else%}page_item{%endif%}">
+      <a href="{{ blog.baseurl }}"  >首页</a>
+    </li>
+    {{self.m_list_pages}}
+    {% block topmenu %}
+
+    {% endblock %}
+
+</ul>
+</div>
+<!-- end gc-topnav -->
+
+
+ {% block content %}{% endblock %}
+
+</div> <!-- end codesite content -->
+
+<div id="gc-footer" dir="ltr">
+  <div id="gc-footer-img"></div>
+  <div class="text" >
+  	<div style="margin-bottom:6px;">
+  		©2009 <a href="http://zpshen.appspot.com">Peter's Blog in Cloud</a> Powered by <a href="http://code.google.com/appengine/" rel="nofollow"><img class="credits" src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine"></a>
+
+  	</div>
+  	<div>
+
+       
+    </div>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-containter -->
+
+</body>
+</html>
