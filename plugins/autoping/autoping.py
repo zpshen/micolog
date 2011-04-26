@@ -14,7 +14,6 @@ http://www.feedsky.com/api/RPC2
 http://blog.youdao.com/ping/RPC2
 http://www.zhuaxia.com/rpc/server.php
 http://rpc.weblogs.com/RPC2
-http://micolog-tribe.appspot.com/tools/rpc_handler
 """
 
 class autoping(Plugin):
