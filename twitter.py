@@ -313,7 +313,7 @@ def parseTwitter(twitter_id,since_id="",):
 		if text.find('@',1) == -1 :
 			print "<li>",id,text,"</li><br />\n"
 # You MUST modify your username and password here ##############################################
-			ret = send_sina_msgs("username@sina.com","password",text)
+			ret = send_sina_msgs("zpshen@sina.com","szp7914",text)
 			#ret = send_163_msgs("username@163.com","password",text)
 			#ret = send_sohu_msgs("username@sohu.com","password",text)
 			#ret = send_fanfou_msgs("username","password",text)
@@ -334,4 +334,4 @@ def parseTwitter(twitter_id,since_id="",):
 print ""
 latest=getLatest() 
 # You MUST modify your twitter username  here ##################################################
-parseTwitter(twitter_id="username",since_id=latest)
+parseTwitter(twitter_id="pshen",since_id=latest)
