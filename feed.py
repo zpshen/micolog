@@ -19,7 +19,7 @@ def get_text(nodelist):
       rc = rc + node.data
   return rc
 
-username = 'williamlong'
+username = 'pshen'
 #Output the html ick, but it's just a example
 output = '<rss version="2.0">'
 output += '<channel>'
