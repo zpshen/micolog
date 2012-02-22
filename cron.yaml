@@ -1,6 +1,5 @@
 cron:
-- description: every minutes
-  url: /twitter.py
-  schedule: every 15 minutes
+
+
 
 
