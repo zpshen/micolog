@@ -67,7 +67,7 @@ def send_sina_msgs(username,password,msg):
 			"status": msg,
 			}
 	form_data = urllib.urlencode(form_fields)
-	result = urlfetch.fetch(url="http://api.t.sina.com.cn/statuses/update.xml?source=App_Key",
+	result = urlfetch.fetch(url="http://api.t.sina.com.cn/statuses/update.xml?source=3500558076",
 			payload=form_data,
 			method=urlfetch.POST,
 			headers={'Authorization':auth}
@@ -313,7 +313,8 @@ def parseTwitter(twitter_id,since_id="",):
 		if text.find('@',1) == -1 :
 			print "<li>",id,text,"</li><br />\n"
 # You MUST modify your username and password here ##############################################
-			ret = send_sina_msgs("zpshen@sina.com","szp7914",text)
+			#ret = send_sina_msgs("zpshen@sina.com","szp7914",text)
+			#ret = send_sina_web_msgs("zpshen@sina.com","szp7914",text)
 			#ret = send_163_msgs("username@163.com","password",text)
 			#ret = send_sohu_msgs("username@sohu.com","password",text)
 			#ret = send_fanfou_msgs("username","password",text)
@@ -322,7 +323,7 @@ def parseTwitter(twitter_id,since_id="",):
 			#ret = send_renjian_msgs("username","password",text)
 			#ret = send_follow5_msgs("username","password",text)
 			#ret = send_pingfm_msgs("api_key","user_app_key",text)
-			#ret = send_hellotxt_msgs("user_key","app_key",text)
+			#ret = send_hellotxt_msgs("pshen","43D6kTxcBORTiCxw",text)
 			msg=Twitter()
 			msg.id=id
 			msg.put()
